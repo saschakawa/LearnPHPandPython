@@ -8,17 +8,15 @@ class employer
 	
 	public function showsDataForEmployer ()
 	{
-		return $this->turnover."<br>".$this->profit."<br>".$this->wage."<br>".$this->distribution."<br>";		
+		return array($this->turnover,$this->profit,$this->wage,$this->distribution);
 	}
-	
 }
 
 class employee extends employer
 {
-
 	public function showsDataForEmployee ()
 	{
-		return $this->turnover."<br>".$this->profit."<br>".$this->wage."<br>";
+		return array($this->turnover,$this->profit,$this->wage);
 	}
 }
 
@@ -26,16 +24,27 @@ class customer extends employee
 {
 	public function showsDataForCustomer ()
 	{
-		return $this->turnover."<br>";
+		return $this->turnover;
 	}
 }
 $sascha = new employer();
 $maxi = new employee();
 $peter = new customer();
-echo $sascha->showsDataForEmployer();
-echo "<br><br>";
-echo $maxi->showsDataForEmployee();
-echo "<br><br>";
+$array = $sascha->showsDataForEmployer();
+    echo $array[0];
+    echo "<br>";
+    echo $array[1];
+    echo "<br>";
+    echo $array[2];
+	echo "<br>";
+	echo $array[3];
+	echo "<br><br>";
+$array = $maxi->showsDataForEmployee();
+    echo $array[0];
+	echo "<br>";
+	echo $array[1];
+	echo "<br>";
+	echo $array[2];
+	echo "<br><br>";
 echo $peter->showsDataForCustomer();
-echo "<br><br>";
 ?>
