@@ -6,24 +6,20 @@ class employer
 	protected $wage ="4.999 Dollar";
 	private $distribution = "187.000 Dollar";
 	
-	public function showsDataForEmployer (): array
-	{
-		return array($this->turnover,$this->profit,$this->wage,$this->distribution);
+	public function showsDataForEmployer (): array {
+		return array($this->turnover, $this->profit, $this->wage, $this->distribution);
 	}
 }
-
 class employee extends employer
 {
-	public function showsDataForEmployee () : array
-	{
-		return array($this->turnover,$this->profit,$this->wage);
+	public function showsDataForEmployee (): array {
+		return array($this->turnover, $this->profit, $this->wage);
 	}
 }
 
 class customer extends employee
 {
-	public function showsDataForCustomer () : string
-	{
+	public function showsDataForCustomer (): string {
 		return $this->turnover;
 	}
 }
