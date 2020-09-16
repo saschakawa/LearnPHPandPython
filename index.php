@@ -1,54 +1,41 @@
 <?php
-class infos
+class employer
 {
-	public $daten = "PS, Lautstärke ....";
-	protected $rabatte = "Skonto, Mitarbeiterrabatt";
-	private $einkaufspreis = "Bezugspreis";
+	public $turnover = "2.8 Million US-Dollar";
+	protected $profit = "750.000 Dollar";
+	protected $wage ="4.999 Dollar";
+	private $distribution = "187.000 Dollar";
 	
-	function prokurist ()
+	public function showsDataForEmployer ()
 	{
-		echo $this->daten;
-		echo "<br>";
-		echo $this->rabatte;
-		echo "<br>";
-		echo $this->einkaufspreis;
-		echo "<br>";
+		return $this->turnover."<br>".$this->profit."<br>".$this->wage."<br>".$this->distribution."<br>";		
 	}
 	
 }
 
-$kunde = new infos();
-echo $kunde->daten; // Works
-echo "<br>";
-echo $kunde->rabatte; // Shows Error
-echo "<br>";
-echo $kunde->einkaufspreis; // Shows Error
-
-$martin = new infos();
-$martin->prokurist(); // Shows Daten, Rabatte, Einkaufspreis
-
-class infos2 extends infos
+class employee extends employer
 {
-	public $daten="PS,Lautstärke, Bremsen";
-	protected $rabatte ="Skonto, Mitarbeiterrabatt";
-	
-	function mitarbeiter ()
+
+	public function showsDataForEmployee ()
 	{
-		echo $this->daten;
-		echo "<br>";
-		echo $this->rabatte;
-		echo "<br>";
-		echo $this->Bezugspreis;
+		return $this->turnover."<br>".$this->profit."<br>".$this->wage."<br>";
 	}
 }
-echo "<br>";
-$praktikant = new infos2();
-$peter = new infos2();
-echo $praktikant->daten; // Works
-echo "<br>";
-echo $praktikant->rabatte; // Error
-echo "<br>";
-echo $praktikant->einkaufspreis; // Undefined
-$peter->mitarbeiter(); // Shows Daten, Rabatte and Undefined
+
+class customer extends employee
+{
+	public function showsDataForCustomer ()
+	{
+		return $this->turnover."<br>";
+	}
+}
+$sascha = new employer();
+$maxi = new employee();
+$peter = new customer();
+echo $sascha->showsDataForEmployer();
+echo "<br><br>";
+echo $maxi->showsDataForEmployee();
+echo "<br><br>";
+echo $peter->showsDataForCustomer();
+echo "<br><br>";
 ?>
-
