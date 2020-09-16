@@ -6,7 +6,7 @@ class employer
 	protected $wage ="4.999 Dollar";
 	private $distribution = "187.000 Dollar";
 	
-	public function showsDataForEmployer ()
+	public function showsDataForEmployer (): array
 	{
 		return array($this->turnover,$this->profit,$this->wage,$this->distribution);
 	}
@@ -14,7 +14,7 @@ class employer
 
 class employee extends employer
 {
-	public function showsDataForEmployee ()
+	public function showsDataForEmployee () : array
 	{
 		return array($this->turnover,$this->profit,$this->wage);
 	}
@@ -22,7 +22,7 @@ class employee extends employer
 
 class customer extends employee
 {
-	public function showsDataForCustomer ()
+	public function showsDataForCustomer () : string
 	{
 		return $this->turnover;
 	}
@@ -31,20 +31,20 @@ $sascha = new employer();
 $maxi = new employee();
 $peter = new customer();
 $array = $sascha->showsDataForEmployer();
-    echo $array[0];
-    echo "<br>";
-    echo $array[1];
-    echo "<br>";
-    echo $array[2];
+	echo $array[0];
+	echo "<br>";
+	echo $array[1];
+	echo "<br>";
+	echo $array[2];
 	echo "<br>";
 	echo $array[3];
 	echo "<br><br>";
 $array = $maxi->showsDataForEmployee();
-    echo $array[0];
+	echo $array[0];
 	echo "<br>";
 	echo $array[1];
 	echo "<br>";
 	echo $array[2];
 	echo "<br><br>";
-echo $peter->showsDataForCustomer();
+	echo $peter->showsDataForCustomer();
 ?>
